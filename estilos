@@ -32,12 +32,13 @@ h1 {
   padding: 10px 14px;
   border-radius: 8px;
   border: 1px solid #d8bce0;
-  background-color: #f3e6fa;
+  background-color: #f3e6fa;  /* Lila pastel */
   color: #3c2a4d;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   min-width: 200px;
   flex: 1 1 200px;
+  white-space: pre-line; /* Permite mostrar el código y nombre en líneas separadas */
 }
 
 .course:hover {
@@ -45,15 +46,17 @@ h1 {
   box-shadow: 0 0 5px rgba(150, 120, 180, 0.2);
 }
 
+/* 🔒 Cursos bloqueados */
 .course.locked {
-  background-color: #eee6f3;
+  background-color: #eee6f3; /* Gris lavanda */
   color: #aaa;
   border: 1px solid #e0d3ea;
   cursor: not-allowed;
 }
 
+/* ✅ Cursos completados */
 .course.completed {
-  background-color: #dcd2e9;
+  background-color: #dcd2e9; /* Morado muy claro */
   color: #4b3663;
   text-decoration: line-through;
   border: 1px solid #c2afd3;
