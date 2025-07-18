@@ -11,66 +11,121 @@
   <div id="malla"></div>
 
   <script>
-    const cursos = {
-      "BIMI065-18": { nombre: "Biología Celular", semestre: 1, prereq: [] },
-      "MATM067-18": { nombre: "Álgebra", semestre: 1, prereq: [] },
-      "QUIM077-18": { nombre: "Bases de Química", semestre: 1, prereq: [] },
-      "QUIM098-18": { nombre: "Equilibrio Químico", semestre: 2, prereq: ["QUIM077-18"] },
-      "QUIM123-18": { nombre: "Química Orgánica", semestre: 3, prereq: ["QUIM098-18"] },
-      "QUIM160-18": { nombre: "Química Orgánica Aplicada", semestre: 4, prereq: ["QUIM123-18"] },
-      "QUIM169-18": { nombre: "Análisis Instrumental", semestre: 4, prereq: ["QUIM123-18"] },
-      "QFAR140-18": { nombre: "Farmacoquímica y Análisis de Medicamentos", semestre: 5, prereq: ["QUIM169-18"] },
-    };
+  const cursos = {
+ const cursos = {
+  "BIMI065-18": { nombre: "BIOLOGÍA CELULAR", semestre: 1, prereq: [] },
+  "CIDI055-17": { nombre: "COMUNICACIÓN EN LENGUA MATERNA", semestre: 1, prereq: [] },
+  "DYRE070-14": { nombre: "EDUCACIÓN FÍSICA Y SALUD", semestre: 1, prereq: [] },
+  "MATM067-18": { nombre: "ÁLGEBRA", semestre: 1, prereq: [] },
+  "QFAR080-18": { nombre: "EL PAPEL DEL/LA FARMACÉUTICO/A EN LA HISTORIA Y SOCIEDAD", semestre: 1, prereq: [] },
+  "QUIM077-18": { nombre: "BASES DE QUÍMICA", semestre: 1, prereq: [] },
+  "CIDI077-17": { nombre: "FOCUS ON READING COMPREHENSION", semestre: 2, prereq: ["CIDI055-17"] },
+  "FSCA093-18": { nombre: "FÍSICA BÁSICA", semestre: 2, prereq: ["MATM067-18"] },
+  "HIPA088-18": { nombre: "BIOLOGÍA HUMANA", semestre: 2, prereq: ["BIMI065-18"] },
+  "MATM086-18": { nombre: "CÁLCULO", semestre: 2, prereq: ["MATM067-18"] },
+  "QFAR090-18": { nombre: "RESPONSABILIDAD SOCIAL DEL/LA QF", semestre: 2, prereq: ["QFAR080-18"] },
+  "QUIM098-18": { nombre: "EQUILIBRIO QUÍMICO", semestre: 2, prereq: ["QUIM077-18"] },
+  "CIDI079-17": { nombre: "FOCUS ON LISTENING AND READING", semestre: 3, prereq: ["CIDI077-17"] },
+  "ELECT12": { nombre: "OFG 1", semestre: 3, prereq: [] },
+  "FISL100-18": { nombre: "FISIOLOGÍA GENERAL", semestre: 3, prereq: ["HIPA088-18"] },
+  "FSCA097-18": { nombre: "FÍSICA PARA CIENCIAS", semestre: 3, prereq: ["FSCA093-18"] },
+  "QFAR125-18": { nombre: "TALLER DE PROYECTOS FARMACÉUTICOS", semestre: 3, prereq: ["QFAR090-18"] },
+  "QUIM123-18": { nombre: "QUÍMICA ORGÁNICA", semestre: 3, prereq: ["QUIM098-18"] },
+  "QUIM129-18": { nombre: "ANÁLISIS QUÍMICO", semestre: 3, prereq: ["QUIM098-18"] },
+  "BIMI166-18": { nombre: "BIOQUÍMICA", semestre: 4, prereq: ["FISL100-18", "QUIM123-18"] },
+  "QFAR130-18": { nombre: "PRINCIPIOS DE FARMACOLOGÍA Y GESTIÓN DEL MEDICAMENTO", semestre: 4, prereq: ["FISL100-18", "QFAR125-18"] },
+  "QFAR273-11": { nombre: "OFG 2", semestre: 4, prereq: [] },
+  "QUIM156-18": { nombre: "QUÍMICA FÍSICA PARA FARMACIA", semestre: 4, prereq: ["QUIM129-18", "MATM086-18"] },
+  "QUIM160-18": { nombre: "QUÍMICA ORGÁNICA APLICADA", semestre: 4, prereq: ["QUIM123-18"] },
+  "QUIM169-18": { nombre: "ANÁLISIS INSTRUMENTAL", semestre: 4, prereq: ["QUIM129-18", "FSCA097-18"] },
+  "BIMI194-18": { nombre: "BIOQUÍMICA CLÍNICA Y HEMATOLOGÍA GENERAL", semestre: 5, prereq: ["BIMI166-18"] },
+  "HIPA145-18": { nombre: "FISIOPATOLOGÍA HUMANA", semestre: 5, prereq: ["BIMI166-18", "FISL100-18"] },
+  "INMU157-18": { nombre: "INMUNOLOGÍA", semestre: 5, prereq: ["BIMI166-18"] },
+  "QFAR122-19": { nombre: "COMUNICACIÓN FARMACÉUTICA EN INGLÉS", semestre: 5, prereq: ["CIDI079-17", "QFAR130-18"] },
+  "QFAR140-18": { nombre: "FARMACOQUÍMICA Y ANÁLISIS DE MEDICAMENTOS", semestre: 5, prereq: ["QUIM169-18", "QFAR130-18"] },
+  "QFAR207-18": { nombre: "FARMACOGNOSIA E INTRODUCCIÓN A LA FITOTERAPIA", semestre: 5, prereq: ["QUIM169-18", "QUIM160-18"] },
+  "BIMI172-18": { nombre: "MICROBIOLOGÍA", semestre: 6, prereq: ["HIPA145-18", "BIMI194-18"] },
+  "CIDI178-18": { nombre: "RELACIONES HUMANAS EN EL ÁMBITO FARMACÉUTICO", semestre: 6, prereq: ["QFAR130-18"] },
+  "PRST169-18": { nombre: "PARASITOLOGÍA HUMANA", semestre: 6, prereq: ["HIPA145-18", "INMU157-18"] },
+  "QFAR209-18": { nombre: "FARMACOLOGÍA GENERAL Y MOLECULAR", semestre: 6, prereq: ["BIMI166-18", "QFAR140-18"] },
+  "QFAR217-18": { nombre: "TECNOLOGÍA FARMACÉUTICA: SÓLIDOS Y LÍQUIDOS", semestre: 6, prereq: ["QFAR140-18", "QUIM156-18"] },
+  "QFAR218-18": { nombre: "BROMATOLOGÍA", semestre: 6, prereq: ["BIMI166-18", "QFAR207-18"] },
+  "ELECT100": { nombre: "OPTATIVO DE ESPECIALIZACIÓN I", semestre: 7, prereq: [] },
+  "ESQF173-18": { nombre: "PRÁCTICA INICIAL", semestre: 7, prereq: ["BIMI065-18", "MATM067-18", "QUIM077-18", "QUIM098-18", "QUIM123-18", "QUIM129-18", "QUIM160-18", "QUIM169-18", "QUIM156-18", "QFAR080-18", "QFAR090-18", "QFAR125-18", "QFAR130-18", "QFAR140-18", "QFAR122-19", "QFAR207-18", "HIPA088-18", "HIPA145-18", "BIMI166-18", "BIMI194-18", "FISL100-18", "FSCA093-18", "FSCA097-18", "CIDI055-17", "CIDI077-17", "CIDI079-17", "DYRE070-14", "INMU157-18", "PRST169-18", "CIDI178-18", "QFAR218-18", "QFAR209-18"] },
+  "ESTD157-18": { nombre: "BIOESTADÍSTICA", semestre: 7, prereq: ["MATM086-18", "QFAR209-18"] },
+  "QFAR219-18": { nombre: "FARMACOLOGÍA DE SISTEMAS", semestre: 7, prereq: ["BIMI194-18", "QFAR209-18"] },
+  "QFAR223-25": { nombre: "FARMACOLOGÍA DE QUIMIOTERAPÉUTICOS", semestre: 7, prereq: ["QFAR209-18", "BIMI172-18"] },
+  "QFAR225-18": { nombre: "TECNOLOGÍA FARMACÉUTICA: SEMISÓLIDOS", semestre: 7, prereq: ["QFAR217-18"] },
+  "QFAR229-25": { nombre: "NUTRICIÓN HUMANA", semestre: 7, prereq: ["QFAR218-18"] },
+  "DPUB155-18": { nombre: "LEGISLACIÓN FARMACÉUTICA", semestre: 8, prereq: ["QFAR209-18", "QFAR229-25", "QFAR225-18"] },
+  "ELECT101": { nombre: "OPTATIVO DE ESPECIALIZACIÓN II", semestre: 8, prereq: [] },
+  "QFAR231-18": { nombre: "FARMACOTERAPIA DE PATOLOGÍAS INFECCIOSAS", semestre: 8, prereq: ["QFAR223-25", "QFAR219-18"] },
+  "QFAR235-18": { nombre: "FARMACOTERAPIA DE PATOLOGÍAS NO INFECCIOSAS", semestre: 8, prereq: ["QFAR223-25", "QFAR219-18", "PRST169-18"] },
+  "QFAR237-18": { nombre: "BIOFARMACIA Y FARMACOCINÉTICA", semestre: 8, prereq: ["ESTD157-18", "QFAR217-18"] },
+  "QFAR239-18": { nombre: "TOXICOLOGÍA", semestre: 8, prereq: ["QFAR218-18", "QFAR223-25", "QFAR219-18"] },
+  "QFAR241-18": { nombre: "GIRA DE TECNOLOGÍA FARMACÉUTICA", semestre: 8, prereq: ["CIDI178-18", "QFAR225-18"] },
+  "ELECT112": { nombre: "OPTATIVO DE PROFUNDIZACIÓN I", semestre: 9, prereq: [] },
+  "ESQF200-18": { nombre: "PRÁCTICA INTERMEDIA", semestre: 9, prereq: [] },
+  "QFAR245-18": { nombre: "FARMACOLOGÍA CLÍNICA Y ATENCIÓN FARMACÉUTICA", semestre: 9, prereq: ["QFAR237-18", "QFAR231-18", "QFAR235-18", "QFAR239-18"] },
+  "QFAR247-18": { nombre: "GESTIÓN FARMACÉUTICA", semestre: 9, prereq: ["DPUB155-18", "CIDI178-18", "QFAR225-18"] },
+  "QFAR251-18": { nombre: "EXPERIENCIA CLÍNICA Y HOSPITALARIA", semestre: 9, prereq: ["QFAR237-18", "QFAR231-18", "QFAR235-18", "QFAR239-18"] },
+  "SALP200-18": { nombre: "GESTIÓN EN SERVICIOS DE SALUD", semestre: 9, prereq: ["QFAR231-18", "QFAR235-18", "DPUB155-18"] },
+  "ESQF295-18": { nombre: "PRÁCTICA PROFESIONAL", semestre: 10, prereq: [] },
+  "ESQF296-18": { nombre: "PROYECTO DE INVESTIGACIÓN (a)", semestre: 10, prereq: [] },
+  "QFAR255-18": { nombre: "INTERNADO INICIAL (b)", semestre: 10, prereq: [] },
+  "ESQF298-18": { nombre: "TRABAJO DE TÍTULO (a)", semestre: 11, prereq: [] },
+  "QFAR260-18": { nombre: "INTERNADO PROFESIONAL VINCULANTE (b)", semestre: 11, prereq: ["QFAR255-18", "ESQF295-18"] }
+};
 
-    const completados = new Set();
+  const completados = new Set();
 
-    function cumpleRequisitos(codigo) {
-      return cursos[codigo].prereq.every(p => completados.has(p));
-    }
+  function cumpleRequisitos(codigo) {
+    return cursos[codigo].prereq.every(p => completados.has(p));
+  }
 
-    function renderMalla() {
-      const container = document.getElementById('malla');
-      container.innerHTML = '';
+  function renderMalla() {
+    const container = document.getElementById('malla');
+    container.innerHTML = '';
 
-      const semestres = [...new Set(Object.values(cursos).map(c => c.semestre))].sort((a, b) => a - b);
+    const semestres = [...new Set(Object.values(cursos).map(c => c.semestre))].sort((a, b) => a - b);
 
-      semestres.forEach(sem => {
-        const bloque = document.createElement('div');
-        bloque.className = 'semester';
-        bloque.innerHTML = `<h2>Semestre ${sem}</h2>`;
-        
-        const grid = document.createElement('div');
-        grid.className = 'course-grid';
+    semestres.forEach(sem => {
+      const bloque = document.createElement('div');
+      bloque.className = 'semester';
+      bloque.innerHTML = `<h2>Semestre ${sem}</h2>`;
 
-        for (let [codigo, curso] of Object.entries(cursos)) {
-          if (curso.semestre !== sem) continue;
+      const grid = document.createElement('div');
+      grid.className = 'course-grid';
 
-          const div = document.createElement('div');
-          div.className = 'course';
-          div.innerText = curso.nombre;
+      for (let [codigo, curso] of Object.entries(cursos)) {
+        if (curso.semestre !== sem) continue;
 
-          if (completados.has(codigo)) {
-            div.classList.add('completed');
-          } else if (!cumpleRequisitos(codigo)) {
-            div.classList.add('locked');
-          }
+        const div = document.createElement('div');
+        div.className = 'course';
+        div.innerText = `${codigo}\n${curso.nombre}`;
 
-          div.onclick = () => {
-            if (!div.classList.contains('locked')) {
-              completados.add(codigo);
-              renderMalla();
-            }
-          };
-
-          grid.appendChild(div);
+        if (completados.has(codigo)) {
+          div.classList.add('completed');
+        } else if (!cumpleRequisitos(codigo)) {
+          div.classList.add('locked');
         }
 
-        bloque.appendChild(grid);
-        container.appendChild(bloque);
-      });
-    }
+        div.onclick = () => {
+          if (!div.classList.contains('locked')) {
+            completados.add(codigo);
+            renderMalla();
+          }
+        };
 
-    renderMalla();
+        grid.appendChild(div);
+      }
+
+      bloque.appendChild(grid);
+      container.appendChild(bloque);
+    });
+  }
+
+  renderMalla();
   </script>
 </body>
 </html>
