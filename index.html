@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Curricular - Química y Farmacia</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <h1>Malla Curricular - Química y Farmacia</h1>
+  <div id="malla"></div>
+
+  <script>
+    const cursos = {
+      "BIMI065-18": { nombre: "Biología Celular", semestre: 1, prereq: [] },
+      "MATM067-18": { nombre: "Álgebra", semestre: 1, prereq: [] },
+      "QUIM077-18": { nombre: "Bases de Química", semestre: 1, prereq: [] },
+      "QUIM098-18": { nombre: "Equilibrio Químico", semestre: 2, prereq: ["QUIM077-18"] },
+      "QUIM123-18": { nombre: "Química Orgánica", semestre: 3, prereq: ["QUIM098-18"] },
+      "QUIM160-18": { nombre: "Química Orgánica Aplicada", semestre: 4, prereq: ["QUIM123-18"] },
+      "QUIM169-18": { nombre: "Análisis Instrumental", semestre: 4, prereq: ["QUIM123-18"] },
+      "QFAR140-18": { nombre: "Farmacoquímica y Análisis de Medicamentos", semestre: 5, prereq: ["QUIM169-18"] },
+    };
+
+    const completados = new Set();
+
+    function cumpleRequisitos(codigo) {
+      return cursos[codigo].prereq.every(p => completados.has(p));
+    }
+
+    function renderMalla() {
+      const container = document.getElementById('malla');
+      container.innerHTML = '';
+
+      const semestres = [...new Set(Object.values(cursos).map(c => c.semestre))].sort((a, b) => a - b);
+
+      semestres.forEach(sem => {
+        const bloque = document.createElement('div');
+        bloque.className = 'semester';
+        bloque.innerHTML = `<h2>Semestre ${sem}</h2>`;
+        
+        const grid = document.createElement('div');
+        grid.className = 'course-grid';
+
+        for (let [codigo, curso] of Object.entries(cursos)) {
+          if (curso.semestre !== sem) continue;
+
+          const div = document.createElement('div');
+          div.className = 'course';
+          div.innerText = curso.nombre;
+
+          if (completados.has(codigo)) {
+            div.classList.add('completed');
+          } else if (!cumpleRequisitos(codigo)) {
+            div.classList.add('locked');
+          }
+
+          div.onclick = () => {
+            if (!div.classList.contains('locked')) {
+              completados.add(codigo);
+              renderMalla();
+            }
+          };
+
+          grid.appendChild(div);
+        }
+
+        bloque.appendChild(grid);
+        container.appendChild(bloque);
+      });
+    }
+
+    renderMalla();
+  </script>
+</body>
+</html>
